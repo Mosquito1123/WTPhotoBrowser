@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ZWTPhotoBrowser"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A simple Photo Browser WTPhotoBrowser."
 
   # This description is used to generate tags and improve search results.
@@ -107,7 +107,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-   s.resources = "Resources/*.png"
+   s.resource_bundles = {'PhotoBrowser' => ['Resource/**/*']}
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
