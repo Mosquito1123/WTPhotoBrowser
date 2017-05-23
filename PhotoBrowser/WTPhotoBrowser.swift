@@ -95,7 +95,7 @@ public class WTPhotoBrowser: UIViewController {
     
     lazy var actionBtn: UIButton = {
         let actionBtn = UIButton()
-        actionBtn.setImage(UIImage(name: "icon_action"), for: .normal)
+        actionBtn.setImage(UIImage(named: "icon_action"), for: .normal)
         actionBtn.addTarget(self, action: #selector(WTPhotoBrowser.actionBtnClick), for: .touchUpInside)
         return actionBtn
     }()
