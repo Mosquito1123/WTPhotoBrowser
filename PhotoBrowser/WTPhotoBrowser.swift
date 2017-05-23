@@ -129,7 +129,7 @@ public class WTPhotoBrowser: UIViewController {
         
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.layout.itemSize.width + self.layout.minimumLineSpacing, height: self.layout.itemSize.height), collectionViewLayout: self.layout)
         
-        collectionView.register(WTPhotoCell.self, forCellWithReuseIdentifier: kPhotoCellReuseID)
+        collectionView.register(WTPhotoCell.self, forCellWithReuseIdentifier: String(describing: WTPhotoCell.self))
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -155,6 +155,7 @@ public class WTPhotoBrowser: UIViewController {
         setupGesture()
         
     }
+
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -162,7 +163,7 @@ public class WTPhotoBrowser: UIViewController {
         collectionView.isHidden = sourceImageView != nil
         
         isOriginalStatusBarHidden = UIApplication.shared.isStatusBarHidden
-        
+    
         UIApplication.shared.setStatusBarHidden(true, with: .fade)
     }
     
@@ -233,7 +234,9 @@ extension WTPhotoBrowser: UICollectionViewDelegate, UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPhotoCellReuseID, for: indexPath) as! WTPhotoCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: WTPhotoCell.self), for: indexPath) as? WTPhotoCell else{
+            return WTPhotoCell()
+        }
         
         cell.photo = photos?[indexPath.item]
         

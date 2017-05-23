@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-let kPhotoCellReuseID = "PhotoCell"
+let kPhotoCellReuseID = String(describing: WTPhotoCell.self)
 
 class WTPhotoCell: UICollectionViewCell {
     
