@@ -22,6 +22,9 @@ public enum WTPhotoBrowserIndicatorPosition {
 }
 
 public class WTPhotoBrowser: UIViewController {
+    //提示 label
+    var hud = UILabel()
+    
     
     public var photos: [WTPhoto]?
     
@@ -149,9 +152,11 @@ public class WTPhotoBrowser: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        
         setupUI()
         setupLayout()
-        
         setupGesture()
         
     }
@@ -411,7 +416,7 @@ extension WTPhotoBrowser {
     
     func image(image: UIImage, didFinishSavingWithError: Error?, contextInfo: Any?) {
     
-        let hud = UILabel()
+        
         hud.layer.cornerRadius = 5
         hud.textAlignment = .center
         hud.textColor = UIColor.white
@@ -432,19 +437,29 @@ extension WTPhotoBrowser {
         
         hud.center = view.center
         hud.alpha = 0
+        if hud.isDescendant(of: view){
+            
+        }else{
+            
+            view.addSubview(hud)
+        }
         
-        view.addSubview(hud)
         
         UIView.animate(withDuration: 0.25, animations: { 
-            hud.alpha = 1
+            self.hud.alpha = 1
         }) { (_) in
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: { 
                 
                 UIView.animate(withDuration: 0.25, animations: { 
-                    hud.alpha = 0
+                    self.hud.alpha = 0
                 }, completion: { (_) in
-                    hud.removeFromSuperview()
+                    if self.hud.isDescendant(of: self.view){
+                        self.hud.removeFromSuperview()
+                    }else{
+                        
+                       
+                    }
                 })
                 
             })
