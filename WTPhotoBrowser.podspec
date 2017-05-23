@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "WTPhotoBrowser"
   s.version      = "0.0.1"
-  s.summary      = "A short description of WTPhotoBrowser."
+  s.summary      = "A simple Photo Browser WTPhotoBrowser."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,9 +25,11 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+
+                 简易的图片浏览器,支持横屏,支持展示动画和回退动画,适合快速敏捷开发.A simple Photo Browser WTPhotoBrowser.
                    DESC
 
-  s.homepage     = "http://EXAMPLE/WTPhotoBrowser"
+  s.homepage     = "https://github.com/Mosquito1123/WTPhotoBrowser"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -52,7 +54,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Yixue_ZhangWentong" => "" }
+  s.author             = { "Winston Cheung" => "zhangwentong1123@icloud.com" }
   # Or just: s.author    = "Yixue_ZhangWentong"
   # s.authors            = { "Yixue_ZhangWentong" => "" }
   # s.social_media_url   = "http://twitter.com/Yixue_ZhangWentong"
@@ -67,7 +69,7 @@ Pod::Spec.new do |s|
   # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
+   s.ios.deployment_target = "8.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -79,7 +81,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/WTPhotoBrowser.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Mosquito1123/WTPhotoBrowser.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,8 +92,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "PhotoBrowser", "PhotoBrowser/*.swift"
+  # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -129,9 +131,9 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+   s.dependency "Kingfisher"
 
 end
