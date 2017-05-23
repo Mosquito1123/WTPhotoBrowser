@@ -1,0 +1,6 @@
+framework module ZWTPhotoBrowser {
+  umbrella header "ZWTPhotoBrowser-umbrella.h"
+
+  export *
+  module * { export * }
+}

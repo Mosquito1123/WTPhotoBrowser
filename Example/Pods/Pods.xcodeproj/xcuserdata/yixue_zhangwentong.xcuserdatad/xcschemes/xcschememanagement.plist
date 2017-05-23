@@ -24,15 +24,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ZWTPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B97BD2F35D261A55A3AEC4DF259982A</key>
+		<key>2CF55AF6CEF7FB76A5BFEF2DC397D751</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2CF55AF6CEF7FB76A5BFEF2DC397D751</key>
+		<key>A7B671AE2FAABBC6105F41AA2CA35200</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>CBB4EB89245F1CA0291FC81BF2390E2D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D534F423943529CED8A26CC8BB64D505</key>
 		<dict>
 			<key>primary</key>
 			<true/>

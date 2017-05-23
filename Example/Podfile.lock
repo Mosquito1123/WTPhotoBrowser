@@ -1,12 +1,16 @@
 PODS:
   - Kingfisher (3.6.1)
+  - ZWTPhotoBrowser (0.0.2):
+    - Kingfisher
 
 DEPENDENCIES:
   - Kingfisher
+  - ZWTPhotoBrowser
 
 SPEC CHECKSUMS:
   Kingfisher: 2f31cb75f3e98d3d4c406cbdcd9b263e956cfa67
+  ZWTPhotoBrowser: eb5a2228cb423263de18e6eca4e0e8f93f4c8f15
 
-PODFILE CHECKSUM: ae4ac118c04494a6af6e3f9fea86283aa0c48584
+PODFILE CHECKSUM: 40ff627e67ce837f45f633b2dc243723e867e846
 
 COCOAPODS: 1.1.1
