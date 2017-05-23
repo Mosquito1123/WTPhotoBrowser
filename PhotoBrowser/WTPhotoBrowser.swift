@@ -24,6 +24,7 @@ public enum WTPhotoBrowserIndicatorPosition {
 public class WTPhotoBrowser: UIViewController {
     //提示 label
     var hud = UILabel()
+    var originWindowLevel:UIWindowLevel!
     
     
     public var photos: [WTPhoto]?
@@ -161,6 +162,30 @@ public class WTPhotoBrowser: UIViewController {
         
     }
 
+    /// 遮盖状态栏。以改变windowLevel的方式遮盖
+    fileprivate func coverStatusBar(_ cover: Bool) {
+        let win = view.window ?? UIApplication.shared.keyWindow
+        guard let window = win else {
+            return
+        }
+        
+        if originWindowLevel == nil {
+            originWindowLevel = window.windowLevel
+        }
+        if cover {
+            if window.windowLevel == UIWindowLevelStatusBar + 1 {
+                return
+            }
+            window.windowLevel = UIWindowLevelStatusBar + 1
+        }
+        else {
+            if window.windowLevel == originWindowLevel {
+                return
+            }
+            window.windowLevel = originWindowLevel
+        }
+    }
+
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -169,13 +194,15 @@ public class WTPhotoBrowser: UIViewController {
         
         isOriginalStatusBarHidden = UIApplication.shared.isStatusBarHidden
     
-        UIApplication.shared.setStatusBarHidden(true, with: .fade)
+        self.coverStatusBar(true)
+//        UIApplication.shared.setStatusBarHidden(true, with: .fade)
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.coverStatusBar(false)
         
-        UIApplication.shared.setStatusBarHidden(isOriginalStatusBarHidden, with: .fade)
+//        UIApplication.shared.setStatusBarHidden(isOriginalStatusBarHidden, with: .fade)
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
@@ -192,9 +219,9 @@ public class WTPhotoBrowser: UIViewController {
     }
     
     
-    override public var prefersStatusBarHidden: Bool {
-        return true
-    }
+//    override public var prefersStatusBarHidden: Bool {
+//        return true
+//    }
     
 }
 
