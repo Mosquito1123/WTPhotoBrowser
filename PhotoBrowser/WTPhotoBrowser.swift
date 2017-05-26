@@ -20,8 +20,11 @@ public enum WTPhotoBrowserIndicatorPosition {
     case top
     case bottom
 }
-
+protocol WTPhotoBrowserDelegate {
+    func photoViewHasBeenLongPressed(_ longPress:UILongPressGestureRecognizer,_ photoBrowser:WTPhotoBrowser)
+}
 public class WTPhotoBrowser: UIViewController {
+    var photoBrowserDelegate:WTPhotoBrowserDelegate?
     //提示 label
     var hud = UILabel()
     var originWindowLevel:UIWindowLevel!
@@ -82,7 +85,7 @@ public class WTPhotoBrowser: UIViewController {
     
     var displayImageView: UIImageView? {
         
-        let cell = collectionView.visibleCells.last as? WTPhotoCell
+        let cell = collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)) as? WTPhotoCell
         return cell?.imageView
     }
     
@@ -93,13 +96,14 @@ public class WTPhotoBrowser: UIViewController {
     
     fileprivate var isOriginalStatusBarHidden = true
     
-    
+    /*
     lazy var actionBtn: UIButton = {
         let actionBtn = UIButton()
         actionBtn.setImage(UIImage(named: "icon_action"), for: .normal)
         actionBtn.addTarget(self, action: #selector(WTPhotoBrowser.actionBtnClick), for: .touchUpInside)
         return actionBtn
     }()
+ */
     
     lazy var pageLabel: UILabel = {
         let pageLabel = UILabel()
@@ -287,7 +291,7 @@ extension WTPhotoBrowser {
         view.addSubview(collectionView)
         view.addSubview(pageLabel)
         view.addSubview(pageControl)
-        view.addSubview(actionBtn)
+//        view.addSubview(actionBtn)
         
         pageControl.numberOfPages = photos?.count ?? 0
         switch indicatorStyle {
@@ -328,19 +332,19 @@ extension WTPhotoBrowser {
         
         backgroundView.frame = view.bounds
         
-        actionBtn.frame.size = CGSize(width: 44, height: 44)
-        actionBtn.frame.origin.x = view.bounds.width - actionBtn.frame.width
-        actionBtn.frame.origin.y = view.bounds.height - actionBtn.frame.height
+//        actionBtn.frame.size = CGSize(width: 44, height: 44)
+//        actionBtn.frame.origin.x = view.bounds.width - actionBtn.frame.width
+//        actionBtn.frame.origin.y = view.bounds.height - actionBtn.frame.height
         
         switch indicatorPosition {
         case .bottom:
             
-            pageLabel.frame.size.height = actionBtn.frame.size.height
+            pageLabel.frame.size.height = 44
             pageLabel.frame.size.width = view.bounds.width
             pageLabel.frame.origin.y = view.bounds.height - pageLabel.frame.height
         default:
             
-            pageLabel.frame.size.height = actionBtn.frame.size.height
+            pageLabel.frame.size.height = 44
             pageLabel.frame.size.width = view.bounds.width
 //            pageLabel.frame.origin.y = view.bounds.height - pageLabel.frame.height
         }
@@ -413,14 +417,14 @@ extension WTPhotoBrowser {
     }
     
     func longPress(_ longPress: UILongPressGestureRecognizer) {
+        photoBrowserDelegate?.photoViewHasBeenLongPressed(longPress, self)
         
-        
-        if longPress.state == .began {
-            
-            actionBtnClick()
-        }
+//        if longPress.state == .began {
+//            
+//            actionBtnClick()
+//        }
     }
-    
+    /*
     func actionBtnClick() {
         
         let alertC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -494,6 +498,7 @@ extension WTPhotoBrowser {
         }
         
     }
+ */
     
 }
 
