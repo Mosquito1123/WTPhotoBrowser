@@ -23,16 +23,16 @@ public enum WTPhotoBrowserIndicatorPosition {
 protocol WTPhotoBrowserDelegate {
     func photoViewHasBeenLongPressed(_ longPress:UILongPressGestureRecognizer,_ photoBrowser:WTPhotoBrowser)
 }
-public class WTPhotoBrowser: UIViewController {
-    internal var photoBrowserDelegate:WTPhotoBrowserDelegate?
+class WTPhotoBrowser: UIViewController {
+    var photoBrowserDelegate:WTPhotoBrowserDelegate?
     //提示 label
-    public var hud = UILabel()
+    var hud = UILabel()
     fileprivate var originWindowLevel:UIWindowLevel!
     
     
-    public var photos: [WTPhoto]?
+    var photos: [WTPhoto]?
     
-    public var currentIndex: Int! {
+    var currentIndex: Int! {
         didSet{
             
             pageLabel.text = "\(currentIndex + 1) / \(photos?.count ?? 0)"
@@ -40,10 +40,10 @@ public class WTPhotoBrowser: UIViewController {
         }
     }
     
-    public var indicatorStyle = WTPhotoBrowserIndicatorStyle.label
-    public var indicatorPosition = WTPhotoBrowserIndicatorPosition.bottom
+    var indicatorStyle = WTPhotoBrowserIndicatorStyle.label
+    var indicatorPosition = WTPhotoBrowserIndicatorPosition.bottom
     
-    public var defaultPlaceholderImage: UIImage? {
+    var defaultPlaceholderImage: UIImage? {
         didSet{
             
             guard let defaultPlaceholderImage = defaultPlaceholderImage else {
@@ -57,7 +57,7 @@ public class WTPhotoBrowser: UIViewController {
         }
     }
     
-    public init(photos: [WTPhoto], currentIndex: Int, sourceImageViewClosure: ((Int)->(UIImageView))? = nil) {
+    init(photos: [WTPhoto], currentIndex: Int, sourceImageViewClosure: ((Int)->(UIImageView))? = nil) {
         super.init(nibName: nil, bundle: nil)
         
         self.photos = photos
@@ -70,7 +70,7 @@ public class WTPhotoBrowser: UIViewController {
         
     }
     
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -191,7 +191,7 @@ public class WTPhotoBrowser: UIViewController {
     }
 
     
-    public override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         collectionView.isHidden = sourceImageView != nil
@@ -202,20 +202,20 @@ public class WTPhotoBrowser: UIViewController {
 //        UIApplication.shared.setStatusBarHidden(true, with: .fade)
     }
     
-    public override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.coverStatusBar(false)
         
 //        UIApplication.shared.setStatusBarHidden(isOriginalStatusBarHidden, with: .fade)
     }
     
-    public override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         sourceImageView?.isHidden = false
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         collectionView.isHidden = false
@@ -232,13 +232,13 @@ public class WTPhotoBrowser: UIViewController {
 extension WTPhotoBrowser: UIViewControllerTransitioningDelegate {
     
     
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return dismissPhotoTransition
         
     }
     
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return presentPhotoTransition
         
@@ -251,11 +251,11 @@ extension WTPhotoBrowser: UIViewControllerTransitioningDelegate {
 extension WTPhotoBrowser: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos?.count ?? 0
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: WTPhotoCell.self), for: indexPath) as? WTPhotoCell else{
             return WTPhotoCell()
@@ -266,7 +266,7 @@ extension WTPhotoBrowser: UICollectionViewDelegate, UICollectionViewDataSource {
         
         return cell
     }
-    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         sourceImageView?.isHidden = false
         
         currentIndex = indexPath.item
