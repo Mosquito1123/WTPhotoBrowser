@@ -24,10 +24,10 @@ protocol WTPhotoBrowserDelegate {
     func photoViewHasBeenLongPressed(_ longPress:UILongPressGestureRecognizer,_ photoBrowser:WTPhotoBrowser)
 }
 public class WTPhotoBrowser: UIViewController {
-    var photoBrowserDelegate:WTPhotoBrowserDelegate?
+    internal var photoBrowserDelegate:WTPhotoBrowserDelegate?
     //提示 label
-    var hud = UILabel()
-    var originWindowLevel:UIWindowLevel!
+    public var hud = UILabel()
+    fileprivate var originWindowLevel:UIWindowLevel!
     
     
     public var photos: [WTPhoto]?
@@ -269,7 +269,7 @@ extension WTPhotoBrowser: UICollectionViewDelegate, UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         sourceImageView?.isHidden = false
         
-        currentIndex = indexPath.item 
+        currentIndex = indexPath.item
         
         
         sourceImageView?.isHidden = true
