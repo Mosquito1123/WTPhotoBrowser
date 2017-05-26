@@ -246,20 +246,7 @@ extension WTPhotoBrowser: UIViewControllerTransitioningDelegate {
     
 }
 
-extension WTPhotoBrowser: UIScrollViewDelegate {
-    
-    
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
-        sourceImageView?.isHidden = false
-        
-        currentIndex = Int((scrollView.contentOffset.x / scrollView.frame.width) + 0.5)
-        
-        
-        sourceImageView?.isHidden = true
-    }
-    
-}
+
 
 extension WTPhotoBrowser: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -279,7 +266,14 @@ extension WTPhotoBrowser: UICollectionViewDelegate, UICollectionViewDataSource {
         
         return cell
     }
-    
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        sourceImageView?.isHidden = false
+        
+        currentIndex = indexPath.item 
+        
+        
+        sourceImageView?.isHidden = true
+    }
 }
 
 extension WTPhotoBrowser {

@@ -22,6 +22,13 @@
 		DE426D1A1ED4183A00104504 /* WTPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D151ED4183A00104504 /* WTPhotoCell.swift */; };
 		DE426D1B1ED4183A00104504 /* WTPhotoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D161ED4183A00104504 /* WTPhotoExtension.swift */; };
 		DE426D1C1ED4183A00104504 /* WTPhotoTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D171ED4183A00104504 /* WTPhotoTransition.swift */; };
+		DE426D3D1ED81F9100104504 /* GYZAlertViewTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D321ED81F9100104504 /* GYZAlertViewTools.swift */; };
+		DE426D3E1ED81F9100104504 /* GYZActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D341ED81F9100104504 /* GYZActionSheet.swift */; };
+		DE426D3F1ED81F9100104504 /* GYZSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D351ED81F9100104504 /* GYZSheetCell.swift */; };
+		DE426D401ED81F9100104504 /* GYZSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D361ED81F9100104504 /* GYZSheetView.swift */; };
+		DE426D411ED81F9100104504 /* GYZUIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D391ED81F9100104504 /* GYZUIColor+Extension.swift */; };
+		DE426D421ED81F9100104504 /* GYZUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D3A1ED81F9100104504 /* GYZUIView+Extension.swift */; };
+		DE426D431ED81F9100104504 /* GYZConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE426D3C1ED81F9100104504 /* GYZConst.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +75,13 @@
 		DE426D151ED4183A00104504 /* WTPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTPhotoCell.swift; sourceTree = "<group>"; };
 		DE426D161ED4183A00104504 /* WTPhotoExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTPhotoExtension.swift; sourceTree = "<group>"; };
 		DE426D171ED4183A00104504 /* WTPhotoTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTPhotoTransition.swift; sourceTree = "<group>"; };
+		DE426D321ED81F9100104504 /* GYZAlertViewTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZAlertViewTools.swift; sourceTree = "<group>"; };
+		DE426D341ED81F9100104504 /* GYZActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZActionSheet.swift; sourceTree = "<group>"; };
+		DE426D351ED81F9100104504 /* GYZSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZSheetCell.swift; sourceTree = "<group>"; };
+		DE426D361ED81F9100104504 /* GYZSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZSheetView.swift; sourceTree = "<group>"; };
+		DE426D391ED81F9100104504 /* GYZUIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GYZUIColor+Extension.swift"; sourceTree = "<group>"; };
+		DE426D3A1ED81F9100104504 /* GYZUIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GYZUIView+Extension.swift"; sourceTree = "<group>"; };
+		DE426D3C1ED81F9100104504 /* GYZConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZConst.swift; sourceTree = "<group>"; };
 		F1DFD36021FBCCFCAC65F4D9 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleTests/Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +193,9 @@
 		DE426D121ED4183A00104504 /* PhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				DE426D311ED81F9100104504 /* AlertView */,
+				DE426D331ED81F9100104504 /* SheetView */,
+				DE426D371ED81F9100104504 /* Tool */,
 				DE426D131ED4183A00104504 /* WTPhoto.swift */,
 				DE426D141ED4183A00104504 /* WTPhotoBrowser.swift */,
 				DE426D151ED4183A00104504 /* WTPhotoCell.swift */,
@@ -187,6 +204,50 @@
 			);
 			name = PhotoBrowser;
 			path = ../PhotoBrowser;
+			sourceTree = "<group>";
+		};
+		DE426D311ED81F9100104504 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				DE426D321ED81F9100104504 /* GYZAlertViewTools.swift */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		DE426D331ED81F9100104504 /* SheetView */ = {
+			isa = PBXGroup;
+			children = (
+				DE426D341ED81F9100104504 /* GYZActionSheet.swift */,
+				DE426D351ED81F9100104504 /* GYZSheetCell.swift */,
+				DE426D361ED81F9100104504 /* GYZSheetView.swift */,
+			);
+			path = SheetView;
+			sourceTree = "<group>";
+		};
+		DE426D371ED81F9100104504 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				DE426D381ED81F9100104504 /* extension */,
+				DE426D3B1ED81F9100104504 /* tool */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		DE426D381ED81F9100104504 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				DE426D391ED81F9100104504 /* GYZUIColor+Extension.swift */,
+				DE426D3A1ED81F9100104504 /* GYZUIView+Extension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		DE426D3B1ED81F9100104504 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				DE426D3C1ED81F9100104504 /* GYZConst.swift */,
+			);
+			path = tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,13 +534,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE426D431ED81F9100104504 /* GYZConst.swift in Sources */,
+				DE426D3D1ED81F9100104504 /* GYZAlertViewTools.swift in Sources */,
 				DE426D1C1ED4183A00104504 /* WTPhotoTransition.swift in Sources */,
+				DE426D421ED81F9100104504 /* GYZUIView+Extension.swift in Sources */,
+				DE426D401ED81F9100104504 /* GYZSheetView.swift in Sources */,
 				DE426D191ED4183A00104504 /* WTPhotoBrowser.swift in Sources */,
+				DE426D411ED81F9100104504 /* GYZUIColor+Extension.swift in Sources */,
 				DE426D1A1ED4183A00104504 /* WTPhotoCell.swift in Sources */,
 				DE426CDC1ED4089500104504 /* ViewController.swift in Sources */,
 				DE426CDA1ED4089500104504 /* AppDelegate.swift in Sources */,
+				DE426D3F1ED81F9100104504 /* GYZSheetCell.swift in Sources */,
 				DE426D181ED4183A00104504 /* WTPhoto.swift in Sources */,
 				DE426D1B1ED4183A00104504 /* WTPhotoExtension.swift in Sources */,
+				DE426D3E1ED81F9100104504 /* GYZActionSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
