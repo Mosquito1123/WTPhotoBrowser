@@ -412,13 +412,10 @@ extension WTPhotoBrowser {
     
     func longPress(_ longPress: UILongPressGestureRecognizer) {
         
-        
-        if longPress.state == .began {
-            if let cell = self.collectionView.visibleCells.last as? WTPhotoCell, let image = cell.imageView.image {
-                photoBrowserDelegate?.photoViewHasBeenLongPressed(longPress, cell, image, self)
-            }
-            
+        if let cell = self.collectionView.visibleCells.last as? WTPhotoCell, let image = cell.imageView.image {
+            photoBrowserDelegate?.photoViewHasBeenLongPressed(longPress, cell, image, self)
         }
+        
     }
     /*
     func actionBtnClick() {
