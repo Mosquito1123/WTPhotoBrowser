@@ -21,7 +21,7 @@ public enum WTPhotoBrowserIndicatorPosition {
     case bottom
 }
 public protocol WTPhotoBrowserDelegate {
-    func photoViewHasBeenLongPressed(_ longPress:UILongPressGestureRecognizer,_ photoBrowser:WTPhotoBrowser)
+    func photoViewHasBeenLongPressed(_ longPress:UILongPressGestureRecognizer,_ cell:WTPhotoCell,_ image:UIImage,_ photoBrowser:WTPhotoBrowser)
 }
 public class WTPhotoBrowser: UIViewController {
     public  var photoBrowserDelegate:WTPhotoBrowserDelegate?
@@ -411,12 +411,14 @@ extension WTPhotoBrowser {
     }
     
     func longPress(_ longPress: UILongPressGestureRecognizer) {
-        photoBrowserDelegate?.photoViewHasBeenLongPressed(longPress, self)
         
-//        if longPress.state == .began {
-//            
-//            actionBtnClick()
-//        }
+        
+        if longPress.state == .began {
+            if let cell = self.collectionView.visibleCells.last as? WTPhotoCell, let image = cell.imageView.image {
+                photoBrowserDelegate?.photoViewHasBeenLongPressed(longPress, cell, image, self)
+            }
+            
+        }
     }
     /*
     func actionBtnClick() {

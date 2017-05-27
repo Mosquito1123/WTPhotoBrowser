@@ -11,7 +11,7 @@ import Kingfisher
 
 let kPhotoCellReuseID = String(describing: WTPhotoCell.self)
 
-class WTPhotoCell: UICollectionViewCell {
+public class WTPhotoCell: UICollectionViewCell {
     
     var photo: WTPhoto? {
         didSet{
@@ -111,7 +111,7 @@ class WTPhotoCell: UICollectionViewCell {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -120,12 +120,12 @@ class WTPhotoCell: UICollectionViewCell {
 }
 extension WTPhotoCell: UIScrollViewDelegate {
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         
         return imageView
     }
     
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    public func scrollViewDidZoom(_ scrollView: UIScrollView) {
         
         let imageViewSize = imageView.frame.size
         
