@@ -49,7 +49,7 @@ class WTPhotoTransition: UIPercentDrivenInteractiveTransition, UIViewControllerA
                 
                 toVC.view.insertSubview(imageView, at: 1)
                 
-                UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+                UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
                     
                     toVC.view.alpha = 1
                     imageView.frame = sourceImage.frameWithScreenWidth
